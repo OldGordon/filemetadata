@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script>
+    function dale(size){
+      window.alert(size);
+    }
+    </script>
+  </head>
+  <body onload ='dale()'>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div>
+      <h1>Your file is <%= size %> bytes long</h1>
+          <% dale(size)%>
+    </div>
+
+  </body>
+</html>

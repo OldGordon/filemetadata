@@ -1,8 +1,6 @@
 var express = require('express'),
     path = require('path'),
     favicon = require('static-favicon'),
-    logger = require('morgan'),
-    cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     app = express();
 
@@ -11,10 +9,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(favicon());
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./controllers/index'));
@@ -22,8 +19,8 @@ app.use('/', require('./controllers/index'));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
+    var err = new Error('Page Not Found');
+    err.status = 'Error number ' + 404;
     next(err);
 });
 
